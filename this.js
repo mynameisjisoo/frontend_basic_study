@@ -235,6 +235,7 @@ sayHi();
   obj.foo();
 }
 
+/*
 {
   var value = 1;
 
@@ -249,6 +250,7 @@ sayHi();
   };
   obj.foo();
 }
+*/
 //내부함수의 this가 전역객체를 참조하는 것을 회피하는 방법
 {
   var value = 1;
@@ -358,3 +360,50 @@ let ladder = {
   }
 };
 ladder.up().up().down().showStep();
+
+console.clear();
+{
+  let obj1 = {
+    name: 'lee',
+    print: function () {
+      console.log(this.name);
+    }
+  };
+
+  let obj2 = {
+    name: 'ji',
+    print: obj1.print
+  };
+
+  let name = 'soo';
+  let print = obj1.print;
+
+  print(); //soo
+  obj1.print(); //lee
+  obj2.print(); //ji
+}
+
+{
+  let obj = {
+    print: function () {
+      console.log(this);
+    }
+  };
+  let print = obj.print;
+
+  obj.print();
+  print();
+}
+//new 키워드와 this binding
+//new로 선언할 경우 this는 생성된 객체 자체를 가리킴
+
+{
+  function printName() {
+    let lastName = 'lee';
+    this.firstName = 'jisoo';
+    console.log(this.lastName + ' ' + this.firstName);
+  }
+  let lastName = 'kim';
+  printName();
+  let o = new printName();
+}
