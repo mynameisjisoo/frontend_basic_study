@@ -343,25 +343,24 @@ console.clear();
 //   const b = +prompt('b: ');
 //   console.log(typeof a, typeof b);
 // }
-
-let ladder = {
-  step: 0,
-  up() {
-    this.step++;
-    return this;
-  },
-  down() {
-    this.step--;
-    return this;
-  },
-  showStep: function () {
-    console.log(this.step);
-    return this;
-  }
-};
-ladder.up().up().down().showStep();
-
-console.clear();
+{
+  let ladder = {
+    step: 0,
+    up() {
+      this.step++;
+      return this;
+    },
+    down() {
+      this.step--;
+      return this;
+    },
+    showStep: function () {
+      console.log(this.step);
+      return this;
+    }
+  };
+  ladder.up().up().down().showStep();
+}
 {
   let obj1 = {
     name: 'lee',
@@ -406,4 +405,37 @@ console.clear();
   let lastName = 'kim';
   printName();
   let o = new printName();
+}
+
+console.clear();
+//this = 호출한 놈
+{
+  var someone = {
+    name: 'jisoo',
+    whoAmI: function () {
+      console.log(this);
+    }
+  };
+  someone.whoAmI(); // this : someone
+
+  var myWhoAmI = someone.whoAmI;
+  myWhoAmI(); //this: window (myWhoAmI는 글로벌에 있고 글로벌은 윈도우)
+
+  //bind : 예외적으로 this를 호출한 놈과 무관하게 고정시키는 것
+  var bindedWhoAmI = myWhoAmI.bind(someone); //bindedWhoamI는 someone을 무조건 this로 고정하겠다.
+  bindedWhoAmI(); //this : someone
+  var btn = document.querySelector('#btn');
+  btn.addEventListener('click', bindedWhoAmI); //this : someone
+}
+
+{
+  function myFunc() {
+    const name = 'Jisoo';
+    const person = {
+      name: 'Lee',
+      sayHi: () => console.log(`Hi ${name}`)
+    };
+    person.sayHi();
+  }
+  myFunc();
 }
