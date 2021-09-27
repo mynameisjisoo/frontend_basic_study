@@ -1,0 +1,19 @@
+/* root 요소(html)가 16px 이기때문에 어떤 레벨에서 사용하던지
+2rem은 16*2 =32px
+*/
+
+.level1 {
+  font-size: 2rem;
+}
+
+.level2 {
+  font-size: 2rem;
+}
+
+.level3 {
+  font-size: 2rem;
+}
+
+.level4 {
+  font-size: 2rem;
+}
