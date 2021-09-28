@@ -1,102 +1,102 @@
+:root {
+  /* color */
+  --color-black: #3f454d;
+  --color-white: #ffffff;
+  --color-blue: #3b88c3;
+  --color-yellow: #fbbe28;
+  --color-pink: #fd7f84;
+  --color-light-grey: #dfdfdf;
+
+  /* size */
+  --base-space: 8px;
+  --size-button: 60px;
+  --size-border: 4px;
+  --size-thumbnail: 50px;
+  --font-size: 18px;
+
+  /* animation-duration */
+  --size-animation-duration: 300ms;
+}
+
 body {
-  background-color: darkseagreen;
-  box-sizing: border-box;
+  height: 100vh;
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.shoppingmall {
-  background-color: darksalmon;
-  font-family: 'Times New Roman', Times, serif;
-  width: 700px;
-  height: 700px;
-  margin: auto;
-  position: relative;
-  top: 50px;
-  text-align: center;
-}
-
-.header {
-  margin: auto;
-  padding: 20px 0;
-}
-
-/* nav 영역*/
-.nav {
-  font-size: 28px;
-  /* background-color: powderblue; */
-  display: flex;
-  width: 100%;
-  height: 60px;
-
-  justify-content: space-between;
-}
-
-/* nav 영역의 모든 요소 줄 맞추기*/
-.nav * {
-  position: relative;
-  vertical-align: middle;
+.logo {
   cursor: pointer;
-  transition: transform 300ms ease-in;
-  display: inline-block;
-  justify-content: space-between;
-  border-radius: 4px;
-  font-weight: bolder;
+  transition: transform var(--size-animation-duration) ease;
 }
 
-.nav img {
-  width: 3rem;
-  padding: 8px 10px;
-  margin-left: 10px;
+.btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform var(--size-animation-duration) ease;
+  margin-right: var(--base-space);
 }
 
-.nav__blue {
-  padding: 8px 10px;
-  margin: 3px 10px;
-  background-color: cornflowerblue;
-}
-
-.nav__yellow {
-  background-color: khaki;
-  margin: 3px 10px;
-  padding: 8px 10px;
-}
-
-.nav__pink {
-  background-color: pink;
-  margin: 3px 10px;
-  padding: 8px 10px;
-}
-
-.nav span:hover {
+.btn:hover,
+.logo:hover {
   transform: scale(1.1);
 }
 
-.section {
-  padding: 8px 10px;
-  margin-top: 8px;
-  text-align: left;
-  font-size: 25px;
-  height: 450px;
-  overflow-y: scroll;
-}
-::-webkit-scrollbar {
-  display: none;
+.buttons {
+  display: flex;
+  align-items: center;
 }
 
-.section__item {
-  background-color: whitesmoke;
-  border-radius: 5px;
-  margin-top: 10px;
-  height: 60px;
-  line-height: 60px;
+.imgBtn {
+  width: var(--size-button);
+  height: var(--size-button);
 }
 
-.clothes {
-  vertical-align: middle;
-  width: 2em;
-  padding: 5px 25px;
+.colorBtn {
+  font-size: var(--font-size);
+  padding: calc(var(--base-space) * 2);
+  border-radius: var(--size-border);
 }
 
-.info {
-  padding-left: 15px;
+.blue {
+  background-color: var(--color-blue);
+}
+
+.yellow {
+  background-color: var(--color-yellow);
+}
+
+.pink {
+  background-color: var(--color-pink);
+}
+
+.items {
+  /* background-color: chartreuse; */
+  width: 60%;
+  height: 60%;
+  list-style: none;
+  padding-left: 0;
+  overflow-y: auto;
+}
+
+.item {
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  padding: var(--base-space);
+  margin-bottom: var(--base-space);
+}
+
+.item__thumbnail {
+  width: var(--size-thumbnail);
+  height: var(--size-thumbnail);
+}
+
+.item__description {
+  margin-left: var(--base-space);
+  font-size: var(--font-size);
 }
