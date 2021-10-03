@@ -1,0 +1,38 @@
+.outer {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+  background-color: green;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+}
+
+.inner {
+  width: 100%;
+  height: 50%;
+}
+
+.inner1 {
+  background-color: blue;
+}
+
+.inner2 {
+  background-color: yellow;
+}
+
+.box1 .inner2 {
+  position: relative;
+  top: 30px;
+  left: 50px;
+}
+
+.box2 .inner1 {
+  position: absolute; /*근접한부모중에 기본값(static)이 아닌 부모의 기준에서 움직임*/
+  top: 30px;
+  left: 50px;
+}
