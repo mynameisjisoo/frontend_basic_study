@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .box {
+        width: 300px;
+        height: 300px;
+        margin: 80px auto;
+        background-color: plum;
+        transition: 250ms;
+      }
+
+      .box.active {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+    <div class="box">10</div>
+    <div class="box">11</div>
+    <div class="box">12</div>
+    <div class="box">13</div>
+    <div class="box">14</div>
+    <div class="box">15</div>
+    <div class="box">16</div>
+    <div class="box">17</div>
+    <div class="box">18</div>
+    <div class="box">19</div>
+    <div class="box">20</div>
+
+    <script></script>
+  </body>
+
+  <script>
+    const boxes = document.querySelectorAll('.box');
+    const options = {
+      root: null, // root 기본값은 null (= viewport)
+      rootMargin: '0px', //기본값은 0, 지정한 px만큼 영역을 넓게 계산하게
+      threshold: 1 //기본값 0, 얼마만큼 보여지면 콜백함수를 호출할지 (0~1), 50%보여지면 호출하겠다=0.5
+      //threshold를 설정하면 들어올때는(isIntersecting) 정해진 threshold값이 적용되고, 나갈때는 지정된값의 반대로 적용됨
+      //만약 threshold:0.2 일때는 20% 들어오면 isIntersecting이 true지만, 나갈때는 80%만큼 나가야지 isIntersecting이 false가 됨
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    });
+    boxes.forEach(box => observer.observe(box));
+  </script>
+</html>
